@@ -239,10 +239,22 @@ function displayGenreKeywords() {
            `<li class="key">${keywords[i]}</li>`
        );
    }
+   $('.keySearch').append(
+       `<p>Or enter your own keyword:</p>
+       <input id="text" type="text" value="">
+       <button type="button" class "submit">Search genres</button>`
+   )
    $('.keyGenres').on('click', '.key', function(event) {
        postedAlbums = [];
        $('.showAlbums').empty();
        displayAlbums($(this).html());
+   })
+   $('form').on('click', 'button', function(event) {
+       postedAlbums = [];
+       $('.showAlbums').empty();
+       let userGenre = $('#text').val();
+       displayAlbums(userGenre);
+       console.log(userGenre);
    })
 }
 
@@ -286,7 +298,8 @@ function generateAlbumsElement(genreTerm = 'yacht rock') {
     const re = new RegExp(genreTerm);
     let genreClassA = genreTerm.replace('&', 'n');
     let genreCLassF = genreClassA.replace(' ', '-');
-    let genreClass = genreCLassF.replace(' ', '-');
+    let genreClassB = genreCLassF.replace(' ', '-');
+    let genreClass = genreClassB.replace('.', '');
     console.log(genreClass);
     $('.showAlbums').append(
         `<div class="genreDiv ${genreClass}">

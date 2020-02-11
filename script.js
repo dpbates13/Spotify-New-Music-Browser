@@ -6,6 +6,22 @@ let albumDatabase = [];
 let artistDatabase = {};
 let genreList = [];
 let postedAlbums = [];
+let currentDate = new Date();
+let prevDate = new Date(currentDate - 604800000);
+let weekAgo = formatDate(prevDate);
+
+function formatDate(date) {
+    let month = '' + (date.getMonth() + 1);
+    let day = '' + date.getDate();
+    let year = date.getFullYear();
+
+    if (month.length < 2) 
+        month = '0' + month;
+    if (day.length < 2) 
+        day = '0' + day;
+
+    return [year, month, day].join('-');
+}
 
 function getIds(url) {
     //console.log('getIds GO');
@@ -118,9 +134,17 @@ function createArtistStrings(data) {
             //console.log(data[i].albums[j].artists);
             //console.log(data[i].albums[j]);
             //console.log(`i=${i} and j=${j}`);
+            let releaseDate = new Date(data[i].albums[j].release_date);
+            let releaseMilli = releaseDate.getTime();
+            //console.log(releaseMilli);
             if (data[i].albums[j] === null) {
                 let poiuoipu = 0;
             }
+            
+            if (releaseMilli < prevDate.getTime()) {
+                let wut = 0;
+            }
+            
             else {
             for (const artist in data[i].albums[j].artists) {
                 //console.log('GO!');
@@ -232,15 +256,15 @@ function displayGenreKeywords() {
     On click, executes displayAlbums with that keyword as input.
     */
    $('.loading').hide();
-   $('.keyGenres').append(`<h1>Please select a genre keyword below</h1>`);
-   const keywords = ['hip hop', 'r&b', 'rap', 'pop', 'dance', 'edm', 'rock', 'indie', 'metal', 'punk', 'folk', 'country', 'christian', 'electronic', 'reggaeton', 'latin', 'classical', 'alternative', 'trap']
+   $('.keyGenres').append(`<h1>Please select a genre below</h1>`);
+   const keywords = ['hip hop', 'rap', 'pop', 'dance', 'edm', 'rock', 'indie', 'metal', 'punk', 'folk', 'country', 'christian', 'electronic', 'reggaeton', 'latin', 'classical', 'emo', 'trap']
    for (i=0; i<keywords.length; i++) {
        $('.keyGenres').append(
            `<li class="key">${keywords[i]}</li>`
        );
    }
    $('.keySearch').append(
-       `<p>Or enter your own keyword:</p>
+       `<p>Or enter your own search term:</p>
        <input id="text" type="text" value="">
        <button type="button" class "submit">Search genres</button>`
    )
@@ -298,8 +322,7 @@ function generateAlbumsElement(genreTerm = 'yacht rock') {
     const re = new RegExp(genreTerm);
     let genreClassA = genreTerm.replace('&', 'n');
     let genreCLassF = genreClassA.replace(' ', '-');
-    let genreClassB = genreCLassF.replace(' ', '-');
-    let genreClass = genreClassB.replace('.', '');
+    let genreClass = genreCLassF.replace(' ', '-');
     console.log(genreClass);
     $('.showAlbums').append(
         `<div class="genreDiv ${genreClass}">

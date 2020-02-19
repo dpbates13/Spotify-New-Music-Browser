@@ -57,7 +57,7 @@ function getIds(url) {
             else {idList.push(responseJson.albums.items[i].id)};
         }
         //console.log(database);
-        if (responseJson.albums.next !== null) {
+        if (responseJson.albums.next !== "https://api.spotify.com/v1/search?query=tag%3Anew&type=album&offset=1000&limit=50") {
             console.log(responseJson.albums.next);
             resolve(getIds(responseJson.albums.next));
             //resolve();
@@ -362,10 +362,19 @@ function clickSubGenre() {
 
 async function createInitialDatabase() {
     await getToken();
+    $(".loading").append(
+    `<p class="loadProg">Getting album IDs... <img src="loader.gif" width="200"/></p>`
+    );
     const start = await getIds(url);
     const idStrings = await createIdArray(start);
+    $(".loading").append(
+    `<p class="loadProg">Getting album information... <img src="loader.gif" width="200"/></p>`
+    );
     const dataB = await createAlbumDatabase(idStrings);
     console.log(dataB);
+    $(".loading").append(
+    `<p class="loadProg">Getting genre info... <img src="loader.gif" width="200"/></p>`
+    );
     const artistStrings = createArtistStrings(dataB);
     console.log(artistStrings);
     const artistGenres = await getArtists(artistStrings);

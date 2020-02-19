@@ -363,17 +363,17 @@ function clickSubGenre() {
 async function createInitialDatabase() {
     await getToken();
     $(".loading").append(
-    `<p class="loadProg">Getting album IDs... <img src="loader.gif" width="200"/></p>`
+    `<p class="loadProg">Getting album IDs...</p>`
     );
     const start = await getIds(url);
     const idStrings = await createIdArray(start);
     $(".loading").append(
-    `<p class="loadProg">Getting album information... <img src="loader.gif" width="200"/></p>`
+    `<p class="loadProg">Getting album information...</p>`
     );
     const dataB = await createAlbumDatabase(idStrings);
     console.log(dataB);
     $(".loading").append(
-    `<p class="loadProg">Getting genre info... <img src="loader.gif" width="200"/></p>`
+    `<p class="loadProg">Getting genre info...</p>`
     );
     const artistStrings = createArtistStrings(dataB);
     console.log(artistStrings);

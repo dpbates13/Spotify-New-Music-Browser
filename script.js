@@ -313,13 +313,11 @@ function displayGenreKeywords() {
   });
   $("form").on("submit", function(event) {
     event.preventDefault();
-    let waiting = 0;
-    if (loaded == 0 && waiting == 0) {
-      $(".showAlbums").append(
-        `<p class="loadProg">Loading... <img src="loader.gif" width="25"/></p>`
+    if (loaded == 0) {
+      $(".subGenreLoad").replaceWith(
+        `<p class="subGenreLoad">Loading... <img src="loader.gif" width="25"/></p>`
       );
       storeClick = $(this).html();
-      waiting++;
     } else {
       postedAlbums = [];
       $(".showAlbums").empty();

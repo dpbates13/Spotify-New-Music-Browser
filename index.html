@@ -1,36 +1,29 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
+  <head>
     <title>Spotify API Project</title>
     <script src="https://code.jquery.com/jquery-3.3.1.js"></script>
     <script src="script.js"></script>
-    <link rel="stylesheet" href="style.css" type="text/css"/>
-</head>
-<body>
+    <!-- <link rel="stylesheet" href="style.css" type="text/css" /> -->
+  </head>
+
+  <body>
     <header class="loading">
-        <h2>Welcome to the Spotify New Music Browser</h2>
+      <h2>Welcome to the Spotify New Music Browser</h2>
       <p>
         This website allows you to find albums released on Spotify that don't
         show up on Spotify's New Releases page. It also sorts them by genre, so
         that you don't have to waste time looking through music that doesn't
         interest you.
       </p>
-      <p>
-        Please wait while the app gathers data from Spotify (this could take a
-        minute)
-      </p>
+      <button type="button">Enter site</button>
     </header>
     <div class="content" class="hidden">
-        
-        <ul class="keyGenres">
-
-        </ul>
-        <form class="keySearch">
-            
-        </form>
-        <div class="showAlbums">
-
-        </div>
+      <ul class="keyGenres"></ul>
+      <form class="keySearch"></form>
+      <div class="showAlbums">
+        <p class="subGenreLoad"></p>
+      </div>
     </div>
-</body>
+  </body>
 </html>

@@ -317,7 +317,7 @@ function displayGenreKeywords() {
       $(".subGenreLoad").replaceWith(
         `<p class="subGenreLoad">Loading... <img src="loader.gif" width="25"/></p>`
       );
-      storeClick = $(this).html();
+      storeClick = $("#text").val();
     } else {
       postedAlbums = [];
       $(".showAlbums").empty();

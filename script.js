@@ -297,7 +297,7 @@ function displayGenreKeywords() {
   $(".keySearch").append(
     `<p>Or enter your own search term:</p>
        <input id="text" type="text" value="">
-       <button type="button" class "submit">Search genres</button>`
+       <button type="submit" class "submit">Search genres</button>`
   );
   $(".keyGenres").on("click", ".key", function(event) {
     if (loaded == 0) {

@@ -343,7 +343,7 @@ function generateAlbumsElement(genreTerm = "yacht rock") {
           if (postedAlbums.indexOf(albumDatabase[i].albums[j].id) == -1) {
             $(`.${genreClass}`).append(
               `<div class="albumElement">
-                            <img src="${albumDatabase[i].albums[j].images[1].url}">
+                            <img src="${albumDatabase[i].albums[j].images[1].url}" alt="${albumDatabase[i].albums[j].name} by ${albumDatabase[i].albums[j].artists[0].name}">
                             <a class="album" href="${albumDatabase[i].albums[j].uri}">${albumDatabase[i].albums[j].name}</a>
                             <p class="artist">${albumDatabase[i].albums[j].artists[0].name}</p>
                             </div>`

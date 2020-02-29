@@ -1,3 +1,141 @@
 .hidden {
-    display: none;
+  display: none;
+}
+
+body {
+  color: white;
+  background-color: rgb(36, 35, 35);
+  font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
+    "Lucida Sans", Arial, sans-serif;
+}
+
+.content h1 {
+  text-align: center;
+}
+
+.instructions {
+  text-align: center;
+}
+
+.noResults {
+  text-align: center;
+}
+
+.keyGenres {
+  list-style-type: none;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-right: 50px;
+}
+
+.keyGenres li {
+  cursor: pointer;
+  text-align: center;
+  margin: 5px;
+  border-radius: 20px;
+  padding: 10px;
+  min-width: 40px;
+  background-color: rgb(66, 177, 66);
+}
+
+.subGenres {
+  list-style-type: none;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-right: 50px;
+}
+
+.subGenres li {
+  cursor: pointer;
+  text-align: center;
+  margin: 5px;
+  border-radius: 20px;
+  padding: 10px;
+  min-width: 40px;
+  background-color: rgb(66, 177, 66);
+}
+
+.keySearch {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.keySearch * {
+  margin: 5px;
+}
+
+#text {
+  height: 15px;
+  border-radius: 5px;
+}
+
+.submit {
+  /*height: 20px;*/
+  border-radius: 20px;
+  padding: 10px;
+  background-color: rgb(66, 177, 66);
+  color: white;
+  border-style: none;
+  cursor: pointer;
+}
+
+.showAlbums h2 {
+  text-align: center;
+}
+
+.showAlbums h3 {
+  text-align: center;
+  width: 100%;
+  background-color: black;
+  color: white;
+  border-radius: 20px;
+  padding-top: 5px;
+  padding-bottom: 5px;
+}
+
+.albumElements {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.showAlbums div img {
+  height: 250px;
+  width: 250px;
+}
+
+.albumElement {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin: 10px;
+}
+
+.album {
+  text-decoration: none;
+  color: white;
+}
+
+.loading {
+  text-align: center;
+}
+
+.subGenreLoad {
+  text-align: center;
+}
+
+.startButton {
+  border-radius: 20px;
+  padding: 10px;
+  background-color: rgb(66, 177, 66);
+  color: white;
+  border-style: none;
+  cursor: pointer;
 }

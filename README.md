@@ -1,5 +1,5 @@
 # Spotify New Music Browser
-Live App:
+Live App: (https://dpbates13.github.io/Spotify-New-Music-Browser/)
 
 This website allows you to find albums released on Spotify that don't
 show up on Spotify's New Releases page. It also sorts them by genre, so
